@@ -17,7 +17,8 @@
             var sha1Hash = getSHA1Hash(text);
 
             var response = {
-                "SHA1 Hash": sha1Hash
+                "text": text,
+                "sha1": sha1Hash
             };
 
             var json = JSON.stringify(response, null, 2);
