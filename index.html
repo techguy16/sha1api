@@ -17,12 +17,14 @@
             var sha1Hash = getSHA1Hash(text);
 
             var response = {
-                "text": text,
                 "sha1": sha1Hash
             };
 
             var json = JSON.stringify(response, null, 2);
-            document.body.innerHTML += '<pre>' + json + '</pre>';
+
+            // Set the Content-Type header to application/json
+            document.contentType = 'application/json';
+            document.body.innerHTML = json;
         });
     </script>
 </body>
