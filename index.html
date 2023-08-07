@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hashing API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <h1>Hashing API</h1>
+    <script>
+        function getSHA1Hash(text) {
+            var sha1Hash = CryptoJS.SHA1(text).toString(CryptoJS.enc.Hex);
+            return sha1Hash;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var url = window.location.href;
+            var text = url.substring(url.lastIndexOf('/') + 1);
+            var sha1Hash = getSHA1Hash(text);
+
+            var response = {
+                "SHA1 Hash": sha1Hash
+            };
+
+            var json = JSON.stringify(response, null, 2);
+            document.body.innerHTML += '<pre>' + json + '</pre>';
+        });
+    </script>
+</body>
+</html>
